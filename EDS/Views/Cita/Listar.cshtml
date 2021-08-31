@@ -1,0 +1,64 @@
+﻿@model IEnumerable<EDS.Models.Cita>
+
+@{
+    ViewData["Title"] = "Listar";
+}
+
+<h1>Listar</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Cedula)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CentroSalud)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaH)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Especialidad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CedulaMedico)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cedula)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CentroSalud)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaH)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Especialidad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CedulaMedico)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descripcion)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Editar", "Cita", new { id1 = item.ID}, null) |
+                @Html.ActionLink("Eliminar", "Eliminar", "Cita", new { id1 = item.ID }, null)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

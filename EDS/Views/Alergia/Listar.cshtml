@@ -1,0 +1,58 @@
+﻿@model IEnumerable<EDS.Models.AlergiaPaciente>
+
+@{
+    ViewData["Title"] = "Listar";
+}
+
+<h1>Listar</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CedulaPaciente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CedulaMedico)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NombreAlergia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaD)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Medicamentos)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CedulaPaciente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CedulaMedico)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NombreAlergia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaD)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Medicamentos)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Editar", "Alergia", new { id1 = item.ID }, null) |
+                @Html.ActionLink("Eliminar", "Eliminar", "Alergia", new { id1 = item.ID }, null)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

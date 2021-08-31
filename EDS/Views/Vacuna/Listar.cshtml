@@ -1,0 +1,58 @@
+﻿@model IEnumerable<EDS.Models.VacunaPaciente>
+
+@{
+    ViewData["Title"] = "Listar";
+}
+
+<h1>Listar</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NombreV)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CedulaP)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CedulaM)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaAp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaPd)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NombreV)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CedulaP)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CedulaM)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaAp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaPd)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Editar", "Vacuna", new { id1 = item.ID }, null) |
+                @Html.ActionLink("Eliminar", "Eliminar", "Vacuna", new { id1 = item.ID }, null)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

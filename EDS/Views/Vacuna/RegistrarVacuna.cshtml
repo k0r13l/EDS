@@ -1,0 +1,52 @@
+﻿@model EDS.Models.VacunaPaciente
+
+@{
+    ViewData["Title"] = "RegistrarVacuna";
+}
+
+
+<h4>VacunaPaciente</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="RegistrarVacuna">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="NombreV" class="control-label"> Nombre de la vacuna </label>
+                <br />
+                <select asp-for="NombreV">
+                    @if (ViewBag.Vacunas != null)
+                    {
+                        @foreach (Vacuna vacuna in ViewBag.Vacunas)
+                        {
+                            <option value="@vacuna.Nombre">@vacuna.Nombre</option>
+                        }
+                    }
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="CedulaP" class="control-label"> Cedula del paciente </label>
+                <input asp-for="CedulaP" class="form-control" />
+                <span asp-validation-for="CedulaP" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FechaAp" class="control-label"> Fecha de aplicación </label>
+                <input asp-for="FechaAp" class="form-control" />
+                <span asp-validation-for="FechaAp" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FechaPd" class="control-label"> Fecha de la próxima dosis</label>
+                <input asp-for="FechaPd" class="form-control" />
+                <span asp-validation-for="FechaPd" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

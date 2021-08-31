@@ -1,0 +1,45 @@
+﻿@model EDS.Models.Cita
+
+@{
+    ViewData["Title"] = "Registrar";
+}
+
+<h1>Registrar</h1>
+
+<h4>Cita</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-controller="Cita" asp-action="Registrar" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Cedula" class="control-label"></label>
+                <input asp-for="Cedula" class="form-control" />
+                <span asp-validation-for="Cedula" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CentroSalud" class="control-label">Centro de salud</label>
+                <input asp-for="CentroSalud" class="form-control" />
+                <span asp-validation-for="CentroSalud" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FechaH" class="control-label">Fecha</label>
+                <input asp-for="FechaH" class="form-control" />
+                <span asp-validation-for="FechaH" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Especialidad" class="control-label"></label>
+                <input asp-for="Especialidad" class="form-control" />
+                <span asp-validation-for="Especialidad" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

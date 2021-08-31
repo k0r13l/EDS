@@ -1,0 +1,44 @@
+﻿@model EDS.Models.AlergiaPaciente
+
+@{
+    ViewData["Title"] = "Registrar";
+}
+
+<h4>AlergiaPaciente</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Registrar" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="CedulaPaciente" class="control-label">Cedula del paciente</label>
+                <input asp-for="CedulaPaciente" class="form-control" />
+                <span asp-validation-for="CedulaPaciente" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NombreAlergia" class="control-label">Nombre de la alergia</label>
+                <br />
+                <select asp-for="NombreAlergia">
+                    @foreach (Alergia item in ViewBag.Alergias)
+                     {
+                    <option value="@item.Nombre">@item.Nombre</option>
+                     }
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="FechaD" class="control-label">Fecha de diagnóstico</label>
+                    <input asp-for="FechaD" class="form-control" />
+                    <span asp-validation-for="FechaD" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Medicamentos" class="control-label">Medicamentos recetados</label>
+                    <input asp-for="Medicamentos" class="form-control" />
+                    <span asp-validation-for="Medicamentos" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
